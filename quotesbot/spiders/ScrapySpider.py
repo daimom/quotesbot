@@ -28,7 +28,7 @@ class booksSpider(scrapy.Spider):
         learn_nodes = response.xpath('//div[@class="item"]')
         for learn_node in learn_nodes:
             item = quote()
-            item['content'] = "".join(str(learn_node.css('h5 > a::text').extract_first()).split())
+            item['content'] = "".join(str(learn_node.css('h5 > a::text').extract_first()).text.encode("utf8".decode("cp950","ignore")).split())
             item['source'] = learn_node.css('p.source-book>span.link>a::text').extract_first()
             item['author'] = str(learn_node.css('p.source-book>span.link:nth-child(2) >a::text').extract_first())
             yield item
