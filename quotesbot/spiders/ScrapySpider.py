@@ -4,7 +4,7 @@
 # import sys
 # import io
 import scrapy
-from urllib import parse as urlparse
+# from urllib import parse as urlparse
 # sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 class quote(scrapy.Item):
     content = scrapy.Field()
