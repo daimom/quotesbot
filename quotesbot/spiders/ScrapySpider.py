@@ -1,11 +1,11 @@
 # import sys
 # print(sys.version)
 # 路徑：C:\user\Anaconda3\envs\scrapyTest\Lib\site-packages\scrapy\booksDemo
-# import sys
-# import io
+import sys
+import io
 import scrapy
 # from urllib import parse as urlparse
-# sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 class quote(scrapy.Item):
     content = scrapy.Field()
     source = scrapy.Field()
