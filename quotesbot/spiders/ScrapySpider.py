@@ -30,7 +30,11 @@ class booksSpider(scrapy.Spider):
             item = quote()
             item['content'] = "".join(str(learn_node.css('h5 > a::text').extract_first().encode('utf-8')).split())
             item['source'] = learn_node.css('p.source-book>span.link>a::text').extract_first()
-            item['author'] = str(learn_node.css('p.source-book>span.link:nth-child(2) >a::text').extract_first().encode('utf-8'))
+            author = learn_node.css('p.source-book>span.link:nth-child(2) >a::text')
+            if len(author) >= 1:
+                item['author'] = str(author.extract_first().encode('utf-8'))
+            else
+                item['author'] = 'None'
             yield item
             # yield{
             #     'content：' : "".join(str(learn_node.css('h5 > a::text').extract_first()).split()) ,
