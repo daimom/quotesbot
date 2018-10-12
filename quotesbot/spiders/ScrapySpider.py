@@ -33,7 +33,7 @@ class booksSpider(scrapy.Spider):
             author = learn_node.css('p.source-book>span.link:nth-child(2) >a::text')
             if len(author) >= 1:
                 item['author'] = str(author.extract_first().encode('utf-8'))
-            else
+            else:
                 item['author'] = 'None'
             yield item
             # yield{
