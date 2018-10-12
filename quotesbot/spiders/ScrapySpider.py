@@ -29,7 +29,7 @@ class booksSpider(scrapy.Spider):
         for learn_node in learn_nodes:
             item = quote()
             item['content'] = "".join(str(learn_node.css('h5 > a::text').extract_first().encode('utf-8')).split())
-            item['source'] = learn_node.css('p.source-book>span.link>a::text').extract_first().encode('utf-8')
+            item['source'] = learn_node.css('p.source-book>span.link>a::text').extract_first()
             item['author'] = str(learn_node.css('p.source-book>span.link:nth-child(2) >a::text').extract_first().encode('utf-8'))
             yield item
             # yield{
